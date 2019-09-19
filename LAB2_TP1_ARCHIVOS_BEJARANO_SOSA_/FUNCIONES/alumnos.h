@@ -14,8 +14,8 @@
 /*****************************************************************************
                              INCLUSIONES PERSONALES
 /*=============================================================================**/
-#include <iostream>
 #include <cstdlib>  /** Libreria estandar que contiene la funcion exit(). */
+#include <iostream>
 #include <cstdio>   /** Libreria para manejo de archivos. */
 #include <locale>   /** Libreria para manejo de Idiomas */
 #include <cstring>  /** Libreria para el manejo de cadenas de texto tDato String */
@@ -234,6 +234,10 @@ void listarAlumnos(tAlumno reg)
 
         }
     }
+     else
+    {
+        txtSinRegistros();
+    }
     fclose(p);
 
 }
@@ -250,6 +254,7 @@ void fMostrarListadoAlumnos()
     {
         listarAlumnos(reg);
     }
+
     txtPresioneTeclaParaContinuar();
 }
 /**=============================================================================

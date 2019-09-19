@@ -1,0 +1,57 @@
+# depslib dependency file v1.0
+1568931662 source:c:\users\mtlwa\documents\github\lab2_tp1_archivos_bejarano_sosa_\lab2_tp1_archivos_bejarano_sosa_\main.cpp
+	<iostream>
+	<cstdlib>
+	"CSYSTEM/csystem.h"
+	"FUNCIONES/menu.h"
+
+1568931662 c:\users\mtlwa\documents\github\lab2_tp1_archivos_bejarano_sosa_\lab2_tp1_archivos_bejarano_sosa_\csystem\csystem.h
+	<iostream>
+	<cstdlib>
+	<cstdio>
+	<ctime>
+	<windows.h>
+	<unistd.h>
+
+1568931662 c:\users\mtlwa\documents\github\lab2_tp1_archivos_bejarano_sosa_\lab2_tp1_archivos_bejarano_sosa_\funciones\menu.h
+	<iostream>
+	<cstdlib>
+	<cstdio>
+	<locale>
+	<cstring>
+	<windows.h>
+	"../CSYSTEM/csystem.h"
+	"./materias.h"
+	"./alumnos.h"
+	"./mensajes.h"
+
+1568936776 c:\users\mtlwa\documents\github\lab2_tp1_archivos_bejarano_sosa_\lab2_tp1_archivos_bejarano_sosa_\funciones\materias.h
+	<iostream>
+	<cstdlib>
+	<cstdio>
+	<locale>
+	<cstring>
+	<windows.h>
+	"../CSYSTEM/csystem.h"
+	"./mensajes.h"
+
+1568936168 c:\users\mtlwa\documents\github\lab2_tp1_archivos_bejarano_sosa_\lab2_tp1_archivos_bejarano_sosa_\funciones\mensajes.h
+	<iostream>
+	<cstdlib>
+	<cstdio>
+	<locale>
+	<cstring>
+	<windows.h>
+	"../CSYSTEM/csystem.h"
+
+1568934377 c:\users\mtlwa\documents\github\lab2_tp1_archivos_bejarano_sosa_\lab2_tp1_archivos_bejarano_sosa_\funciones\alumnos.h
+	<cstdlib>
+	<iostream>
+	<cstdio>
+	<locale>
+	<cstring>
+	<windows.h>
+	"../CSYSTEM/csystem.h"
+	"./mensajes.h"
+	"./menu.h"
+

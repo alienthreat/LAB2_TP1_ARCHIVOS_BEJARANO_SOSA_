@@ -33,6 +33,16 @@ void txtTabs()
 {
     cout << "\t \t";
 }
+/**==============================================================================
+ FUNCIÓN : txtTab()
+ ACCIÓN : tabulaciones para texto
+ PARAMETROS: Ninguno.
+ DEVUELVE : nada.
+============================================================================== */
+void txtTab()
+{
+    cout << "\t ";
+}
 
 /**==============================================================================//==============================================================================
  FUNCIÓN : txtLineas()
@@ -57,6 +67,19 @@ void txtPresioneTeclaParaContinuar()
     txtTabs(); cout << " Presione una tecla para continuar.";
     cin.get();
 }
+/**==============================================================================
+ FUNCIÓN : void txtSinRegistros()
+ ACCIÓN : Le muestra un cartel al usuario que indica que no existen registros
+            en el archivo.
+ PARAMETROS: Ninguno.
+ DEVUELVE : nada.
+==============================================================================*/
+void txtSinRegistros()
+{
+    txtTabs(); cout << "NO EXISTEN REGISTROS EN EL ARCHIVO... Retroceda y cargue un registro, maestro splinter." << endl;
+    cin.get();
+}
+
 
 /**==============================================================================
  FUNCIÓN : txtElijaOp()
@@ -208,19 +231,17 @@ void txtCargaExitosa()
 ============================================================================= **/
 void txtCargaMateria(int val)
 {
-    cout << endl;
-
     if(val== 1)
     {
-        txtTabs();cout<<"NOMBRE MATERIA: ";
+        txtTabs();cout<<" MATERIA ";
     }
     else if(val == 2 )
     {
-        txtTabs(); cout << "ID_MATERIA: "  ;
+        txtTabs(); cout << "ID_MATERIA "  ;
     }
     else if(val == 3)
     {
-        txtTabs(); cout << "NOMBRE PROFESOR: " ;
+        txtTabs(); cout << "PROFESOR " ;
     }
 
 }

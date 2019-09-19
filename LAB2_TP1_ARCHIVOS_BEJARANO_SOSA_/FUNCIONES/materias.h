@@ -219,14 +219,11 @@ bool altaMateria()
 ============================================================================= **/
 void mostrarMateria(tMateria reg)
 {
+    txtCargaMateria(2);  txtCargaMateria(1);  txtTab();   txtCargaMateria(3); cout << ""<< endl;
     if(!reg.eliminado)
     {
-        txtCargaMateria(2);
-        cout<<reg.id_materia<<endl;
-        txtCargaMateria(1);
-        cout<<reg.nombre<<endl;
-        txtCargaMateria(3);
-        cout<<reg.profesor<<endl;
+
+        cout<< " \t \t " <<  reg.id_materia << " \t \t "  << reg.nombre << " \t \t " << reg.profesor <<endl;
     }
 
 }
@@ -292,8 +289,11 @@ void listarMaterias(tMateria reg)
         while(fread(&reg, sizeof(tMateria), 1, p)==1)
         {
             mostrarMateria(reg);
-
         }
+    }
+    else
+    {
+        txtSinRegistros();
     }
     fclose(p);
 
@@ -311,6 +311,7 @@ void fMostrarListadoMaterias()
     {
         listarMaterias(reg);
     }
+
     txtPresioneTeclaParaContinuar();
 }
 /**=============================================================================
