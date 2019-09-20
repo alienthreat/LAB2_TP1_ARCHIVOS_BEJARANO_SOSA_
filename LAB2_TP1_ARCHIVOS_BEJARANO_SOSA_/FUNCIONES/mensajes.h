@@ -162,7 +162,7 @@ void txtMaterias()
     txtTabs(); cout << "||              2- LISTADO                                  ||" << endl;
     txtTabs(); cout << "||              3- MODIFICAR                                ||" << endl;
     txtTabs(); cout << "||              4- GENERAR BAJA                             ||" << endl;
-    txtTabs(); cout << "||              5- LISTADO ALUMNOS X MATERIAS               ||" << endl;
+    txtTabs(); cout << "||              5- ASIGNACION DE MATERIA A ALUMNOS          ||" << endl;
     txtLineas();
     txtTabs(); cout << "||              6- DLC BLOQUEADO                            ||" << endl;
     txtTabs(); cout << "||              7- DLC BLOQUEDO                             ||" << endl;
@@ -190,8 +190,8 @@ void txtAlumnos()
     txtTabs(); cout << "||              1- ALTA ALUMNO                             ||" << endl;
     txtTabs(); cout << "||              2- LISTADO ALUMNOS                         ||" << endl;
     txtTabs(); cout << "||              3- MODIFICAR ALUMNOS                       ||" << endl;
-    txtTabs(); cout << "||              4- DAR DE BAJA A ALUMNO DE MATERIA         ||" << endl;
-    txtTabs(); cout << "||              5- ASIGNACION DE ALUMNO A MATERIA          ||" << endl;
+    txtTabs(); cout << "||              4- GENERAR BAJA                            ||" << endl;
+    txtTabs(); cout << "||              5- ASIGNACION DE ALUMNO A MATERIAS         ||" << endl;
     txtLineas();
     txtTabs(); cout << "||              X- DLC BLOQUEADO                           ||" << endl;
     txtTabs(); cout << "||              X- DLC BLOQUEADO                           ||" << endl;

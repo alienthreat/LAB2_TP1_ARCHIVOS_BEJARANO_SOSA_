@@ -21,6 +21,7 @@
 #include "../CSYSTEM/csystem.h" /** Libreria para multiplataforma. */
 #include "./materias.h" /** LIBRERIA DE FUNCIONES PARA MATERIAS **/
 #include "./alumnos.h" /** LIBRERIA DE FUNCIONES PARA ALUMNOS **/
+#include "./relacional.h" /** LIBRERIA DE FUNCIONES RELACIONALES ENTRE ARCHIVOS**/
 #include "./mensajes.h"    /** TEXTOS DE LA APLICACION - Y SI, MUCHO MAS COMODO ! */
 /**=============================================================================**/
 
@@ -99,7 +100,8 @@ bool subAlumnos(char *op)
     break;
     case 53:
     {
-        //LISTADO DE ALUMNOS POR MATERIA
+        //ASIGNAR MATERIAS A ALUMNO
+        AsignarMtoA();
     }
     break;
     case 54:
@@ -172,7 +174,8 @@ bool subMaterias(char *op)
     break;
     case 53:
     {
-        //LISTADO DE ALUMNOS POR MATERIA
+        //ASIGNAR MATERIAS A ALUMNO
+        AsignarAtoM();
     }
     break;
     case 54:
