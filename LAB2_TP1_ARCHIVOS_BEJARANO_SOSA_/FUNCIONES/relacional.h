@@ -44,10 +44,6 @@ bool grabarMateriaRelacional(tMaterias_x_Alumno reg){
   return escribio;
 }
 
-bool verificarMateriaActiva(int id){}
-
-bool verificarAlumnoActivo(int legajo){}
-
 /**=============================================================================
  FUNCION : bool verificarEstadoMateria(int id)
  ACCION : Verifica si la materia se encuentra activa o dada de baja
@@ -70,12 +66,6 @@ bool verificarMateria(int id)
         txtPresioneTeclaParaContinuar();
         exit =true;
         return exit;
-    }
-    if(!verificarMateriaActiva(id))
-    {
-    txtPresioneTeclaParaContinuar();
-    exit=true;
-    return exit;
     }
     return exit;
 }
@@ -103,17 +93,13 @@ bool verificarAlumno(int legajo)
         exit=true;
         return exit;
     }
-    if(!verificarAlumnoActivo(legajo))
-    {
-    txtPresioneTeclaParaContinuar();
-    exit=true;
-    return exit;
-    }
     return exit;
 }
 
 void AsignarAtoM()
 {
+    cout<<"aver"<<endl;
+    txtPresioneTeclaParaContinuar();
     system("cls");
     struct tMaterias_x_Alumno reg;
     int legajo, id;
@@ -190,11 +176,67 @@ void AsignarMtoA()
     }
 }
 
-void mostrarAlumnosDeMateria(int id_materia){
-
+/**=============================================================================
+ FUNCION : void mostrarAlumnosaAsignados(int id_materia)
+ ACCION : Funcion para mostrar los alumnos cuyo id_materia coincida con el indicado,
+ dentro del archivo relacional. Si coincide, los busca y muestra sus datos
+ PARAMETROS: id a buscar
+ DEVUELVE : nada
+============================================================================= **/
+void mostrarAlumnosAsignados(int id_materia)
+{
+    struct tMaterias_x_Alumno reg;
+    struct tAlumno areg;
+    FILE *p;
+    int pos=-1;
+    int index=0;
+    p=fopen(ALUMNOS, "rb");
+    if(p!=NULL)
+    {
+        while(fread(&reg, sizeof(tAlumno), 1, p)==1)
+        {
+            if(reg.id_materia==id_materia)
+            {
+                fclose(p);
+                //mostrar el alumno mediante el LEGAJO
+                int legajo = reg.legajo;
+                pos=buscarAlumno(legajo, areg);
+                areg=leerRegistroAlumno(pos);
+                mostrarAlumno(areg);
+                txtLineas();
+            }
+            index++;
+        }
+    }
 }
 
-void mostrarAxM(){
+void mostrarMateriasAsignadas(int legajo){
+    struct tMaterias_x_Alumno reg;
+    struct tMateria mreg;
+    FILE *p;
+    int pos=-1;
+    int index=0;
+    p=fopen(MATERIAS, "rb");
+    if(p!=NULL)
+    {
+        while(fread(&reg, sizeof(tMateria), 1, p)==1)
+        {
+            if(reg.legajo==legajo)
+            {
+                fclose(p);
+                //mostrar la materia mediante el ID
+                int id_materia = reg.id_materia;
+                pos=buscarMateria(id_materia, mreg);
+                mreg=leerRegistroMateria(pos);
+                mostrarMateria(mreg);
+                txtLineas();
+            }
+            index++;
+        }
+    }
+}
+
+void mostrarAsxM(){
     system("cls");
     bool exit=false;
     while(!exit)
@@ -209,7 +251,27 @@ void mostrarAxM(){
     txtLineas();
     if(!exit)
         {
-        mostrarAlumnosDeMateria(id_materia);
+        mostrarAlumnosAsignados(id_materia);
+        }
+    }
+}
+
+void mostrarMsxA(){
+    system("cls");
+    bool exit=false;
+    while(!exit)
+    {
+    fMostrarListadoAlumnos();
+    int legajo;
+    txtTabs();
+    cout<<"Ingrese el legajo del alumno cuya materias desea ver:"<<endl;
+    cout<<"NOTA: Ingrese 0 para salir"<<endl;
+    cin>>legajo;
+    exit=verificarAlumno(legajo);
+    txtLineas();
+    if(!exit)
+        {
+        mostrarMateriasAsignadas(legajo);
         }
     }
 }

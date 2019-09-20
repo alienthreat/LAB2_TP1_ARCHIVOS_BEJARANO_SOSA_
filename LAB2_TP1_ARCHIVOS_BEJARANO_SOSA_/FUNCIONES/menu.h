@@ -106,7 +106,8 @@ bool subAlumnos(char *op)
     break;
     case 54:
     {
-
+        //MOSTRAR MATERIAS POR ALUMNO
+        mostrarMsxA();
     }
     break;
     case 55:
@@ -180,7 +181,8 @@ bool subMaterias(char *op)
     break;
     case 54:
     {
-
+        //MOSTRAR MATERIAS POR ALUMNO
+        mostrarMsxA();
     }
     break;
     case 55:
