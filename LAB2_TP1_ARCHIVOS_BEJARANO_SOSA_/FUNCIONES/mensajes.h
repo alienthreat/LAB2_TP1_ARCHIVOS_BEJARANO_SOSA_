@@ -52,7 +52,7 @@ void txtTab()
 ============================================================================== */
 void txtLineas()
 {
-    txtTabs(); cout << "||____________________________________________________________||" << endl;
+    txtTabs(); cout << "||__________________________________________________________||" << endl;
 }
 /**==============================================================================
  FUNCIÓN : textoPresioneTeclaParaContinuar
@@ -66,6 +66,7 @@ void txtPresioneTeclaParaContinuar()
 
     txtTabs(); cout << " Presione una tecla para continuar.";
     cin.get();
+    cin.ignore();
 }
 /**==============================================================================
  FUNCIÓN : void txtSinRegistros()
@@ -78,7 +79,23 @@ void txtSinRegistros()
 {
     txtTabs(); cout << "NO EXISTEN REGISTROS EN EL ARCHIVO... Retroceda y cargue un registro, maestro splinter." << endl;
     cin.get();
+    cin.ignore();
 }
+
+/**==============================================================================
+ FUNCIÓN : void txtArchivoVacio()
+ ACCIÓN : Le muestra un cartel al usuario que indica que no existen registros
+            en el archivo.
+ PARAMETROS: Ninguno.
+ DEVUELVE : nada.
+==============================================================================*/
+void txtArchivoVacio()
+{
+    txtTabs(); cout << "NO SE CREO NINGUN REGISTRO" << endl;
+    cin.get();
+    cin.ignore();
+}
+
 
 
 /**==============================================================================
@@ -89,7 +106,7 @@ void txtSinRegistros()
 ============================================================================== */
 void txtElijaOp()
 {
-    txtTabs(); txtTabs(); cout << "    ELIJA UNA OPCION DEL MENU   : ";
+    txtTabs(); txtTabs(); cout << "ELIJA UNA OPCION DEL MENU   : ";
 }
 /**==============================================================================
  FUNCIÓN : txtVolverMenu();
@@ -111,7 +128,7 @@ void txtVolverMenu()
 void txtMenuPrincipal()
 {
     txtLineas();
-    txtTabs(); cout << "||--------------------MENU PRINCIPAL -----------------------||" << endl;
+    txtTabs(); cout << "||------------------  MENU PRINCIPAL -----------------------||" << endl;
     txtLineas();
     txtTabs(); cout << "||              1- MATERIAS                                 ||" << endl;
     txtTabs(); cout << "||              2- ALUMNOS                                  ||" << endl;
@@ -139,7 +156,7 @@ void txtMenuPrincipal()
 void txtMaterias()
 {
     txtLineas();
-    txtTabs(); cout << "||--------------------MENU MATERIAS -----------------------||" << endl;
+    txtTabs(); cout << "||------------------  MENU MATERIAS ------------------------||" << endl;
     txtLineas();
     txtTabs(); cout << "||              1- DAR ALTA                                 ||" << endl;
     txtTabs(); cout << "||              2- LISTADO                                  ||" << endl;
@@ -168,7 +185,7 @@ void txtMaterias()
 void txtAlumnos()
 {
     txtLineas();
-    txtTabs(); cout << "||--------------------MENU ALUMNOS -----------------------||" << endl;
+    txtTabs(); cout << "||------------------  MENU ALUMNOS ------------------------||" << endl;
     txtLineas();
     txtTabs(); cout << "||              1- ALTA ALUMNO                             ||" << endl;
     txtTabs(); cout << "||              2- LISTADO ALUMNOS                         ||" << endl;
@@ -209,7 +226,9 @@ void txtContinuaCarga()
 ============================================================================= **/
 void txtNoOpcion(char* opcion)
 {
+    cout << endl;
     txtTabs(); cout << " ' " << opcion << "'" << " NO ES UNA OPCION VALIDA DEL MENU    " << endl;
+    txtPresioneTeclaParaContinuar();
 }
 
 /**=============================================================================
@@ -220,7 +239,7 @@ void txtNoOpcion(char* opcion)
 ============================================================================= **/
 void txtCargaExitosa()
 {
-    txtTabs(); cout << "LA COSA ESTA CARGO BIEN! EXITOS !" << endl;
+    txtTabs(); cout << "SE HA CARGADO EL REGISTRO CORRECTAMENTE EN LA BASE DE DATOS CENTRALIZADA. !" << endl;
     txtPresioneTeclaParaContinuar();
 }
 /**=============================================================================

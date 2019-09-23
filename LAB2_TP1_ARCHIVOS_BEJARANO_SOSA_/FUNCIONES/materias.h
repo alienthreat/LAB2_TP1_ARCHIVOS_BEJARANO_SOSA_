@@ -74,6 +74,41 @@ bool crearArchivo(const char *url)
     }
     return creado;
 }
+/**=============================================================================
+ FUNCION : corroborar(tMateria reg)
+ ACCION : listar las materias del archivo
+ PARAMETROS: tMateria reg
+ DEVUELVE : nada
+============================================================================= **/
+void listarMaterias(tMateria reg)
+{
+    FILE *p;
+    int valMaterias = 0;
+    p=fopen(MATERIAS, "rb");
+    if(p!=NULL)
+    {
+        while(fread(&reg, sizeof(tMateria), 1, p)==1)
+        {
+            if(!reg.eliminado)
+            {
+                mostrarMateria(reg);
+                valMaterias++;
+            }
+
+        }
+    }
+    else
+    {
+        txtArchivoVacio();
+    }
+
+    if(valMaterias=0 )
+        txtSinRegistros();
+
+    fclose(p);
+
+}
+
 
 /**=============================================================================
  FUNCION : bool grabarMateria(tMaterias mat)
@@ -135,7 +170,8 @@ bool grabarMateriaModificada(struct tMateria reg,int pos)
     FILE *p;
     bool escribio = false;
     p=fopen(MATERIAS, "rb+");
-    if(p==NULL)return escribio;
+    if(p==NULL)
+        return escribio;
     fseek(p,pos*sizeof reg,0);
     escribio=fwrite(&reg, sizeof(reg), 1, p);
     fclose(p);
@@ -201,10 +237,9 @@ bool altaMateria()
     bool c = cargarMateria(&reg);
     if(c)
     {
-     txtCargaExitosa();
+        txtCargaExitosa();
     }
     else
-
     {
         cout<<"ERROR AL CARGAR MATERIA"<<endl;
     }
@@ -219,7 +254,11 @@ bool altaMateria()
 ============================================================================= **/
 void mostrarMateria(tMateria reg)
 {
-    txtCargaMateria(2);  txtCargaMateria(1);  txtTab();   txtCargaMateria(3); cout << ""<< endl;
+    txtCargaMateria(2);
+    txtCargaMateria(1);
+    txtTab();
+    txtCargaMateria(3);
+    cout << ""<< endl;
     if(!reg.eliminado)
     {
 
@@ -283,18 +322,28 @@ int buscarMateria(int id, tMateria reg)
 void listarMaterias(tMateria reg)
 {
     FILE *p;
+    int valMaterias = 0;
     p=fopen(MATERIAS, "rb");
     if(p!=NULL)
     {
         while(fread(&reg, sizeof(tMateria), 1, p)==1)
         {
-            mostrarMateria(reg);
+            if(!reg.eliminado)
+            {
+                mostrarMateria(reg);
+                valMaterias++;
+            }
+
         }
     }
     else
     {
-        txtSinRegistros();
+        txtArchivoVacio();
     }
+
+    if(valMaterias=0 )
+        txtSinRegistros();
+
     fclose(p);
 
 }
@@ -307,11 +356,7 @@ void listarMaterias(tMateria reg)
 void fMostrarListadoMaterias()
 {
     tMateria reg;
-    if(!reg.eliminado)
-    {
-        listarMaterias(reg);
-    }
-
+    listarMaterias(reg);
     txtPresioneTeclaParaContinuar();
 }
 /**=============================================================================
@@ -376,10 +421,12 @@ void bajaMateria()
     if(grabarMateriaModificada(reg,pos))  //
     {
         cout<<"MATERIA ELIMINADA"<<endl;
+        txtPresioneTeclaParaContinuar();
     }
     else
     {
         cout<<"NO SE PUDO ELIMINAR LA MATERIA"<<endl;
+        txtPresioneTeclaParaContinuar();
     }
 }
 

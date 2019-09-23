@@ -13,7 +13,7 @@
 	<windows.h>
 	<unistd.h>
 
-1568931662 c:\users\mtlwa\documents\github\lab2_tp1_archivos_bejarano_sosa_\lab2_tp1_archivos_bejarano_sosa_\funciones\menu.h
+1569195287 c:\users\mtlwa\documents\github\lab2_tp1_archivos_bejarano_sosa_\lab2_tp1_archivos_bejarano_sosa_\funciones\menu.h
 	<iostream>
 	<cstdlib>
 	<cstdio>
@@ -25,7 +25,7 @@
 	"./alumnos.h"
 	"./mensajes.h"
 
-1568936776 c:\users\mtlwa\documents\github\lab2_tp1_archivos_bejarano_sosa_\lab2_tp1_archivos_bejarano_sosa_\funciones\materias.h
+1569195214 c:\users\mtlwa\documents\github\lab2_tp1_archivos_bejarano_sosa_\lab2_tp1_archivos_bejarano_sosa_\funciones\materias.h
 	<iostream>
 	<cstdlib>
 	<cstdio>
@@ -35,7 +35,7 @@
 	"../CSYSTEM/csystem.h"
 	"./mensajes.h"
 
-1568936168 c:\users\mtlwa\documents\github\lab2_tp1_archivos_bejarano_sosa_\lab2_tp1_archivos_bejarano_sosa_\funciones\mensajes.h
+1569192755 c:\users\mtlwa\documents\github\lab2_tp1_archivos_bejarano_sosa_\lab2_tp1_archivos_bejarano_sosa_\funciones\mensajes.h
 	<iostream>
 	<cstdlib>
 	<cstdio>
@@ -44,7 +44,7 @@
 	<windows.h>
 	"../CSYSTEM/csystem.h"
 
-1568934377 c:\users\mtlwa\documents\github\lab2_tp1_archivos_bejarano_sosa_\lab2_tp1_archivos_bejarano_sosa_\funciones\alumnos.h
+1569195214 c:\users\mtlwa\documents\github\lab2_tp1_archivos_bejarano_sosa_\lab2_tp1_archivos_bejarano_sosa_\funciones\alumnos.h
 	<cstdlib>
 	<iostream>
 	<cstdio>

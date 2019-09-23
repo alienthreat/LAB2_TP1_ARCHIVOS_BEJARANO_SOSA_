@@ -50,6 +50,7 @@ char validarOpcionPrincipal(char* opcion)
         else
         {
             cout << endl;
+            txtElijaOp();
             txtNoOpcion(opcion);
 //            textoPresioneTeclaParaContinuar();
             sys::cls();
@@ -69,66 +70,67 @@ char validarOpcionPrincipal(char* opcion)
 ============================================================================= **/
 bool subAlumnos(char *op)
 {
-            bool exit=false;
-            switch(validarOpcionPrincipal(op))
-            {
-                case 49:
-                {
-                    //ALTA DE ALUMNOS
-                    altaAlumno();
-                }
-                break;
-                case 50:
-                {
-                    //LISTADO DE ALUMNOS
-                    fMostrarListadoAlumnos();
-                }
-                break;
-                case 51:
-                {
-                    //MODIFICAR ALUMNOS.
-                    modificarAlumno();
-                }
-                break;
-                case 52:
-                {
-                    //BAJA DE MATERIAS.
-                    bajaAlumno();
-                }
-                break;
-                case 53:
-                {
-                    //LISTADO DE ALUMNOS POR MATERIA
-                }
-                break;
-                case 54:
-                {
+    bool exit=false;
+    switch(validarOpcionPrincipal(op))
+    {
+    case 49:
+    {
+        //ALTA DE ALUMNOS
+        altaAlumno();
+    }
+    break;
+    case 50:
+    {
+        //LISTADO DE ALUMNOS
+        fMostrarListadoAlumnos();
+    }
+    break;
+    case 51:
+    {
+        //MODIFICAR ALUMNOS.
+        modificarAlumno();
+    }
+    break;
+    case 52:
+    {
+        //BAJA DE MATERIAS.
+        bajaAlumno();
+    }
+    break;
+    case 53:
+    {
+        //LISTADO DE ALUMNOS POR MATERIA
+    }
+    break;
+    case 54:
+    {
 
-                }
-                break;
-                case 55:
-                {
+    }
+    break;
+    case 55:
+    {
 
-                }
-                break;
-                case 56:
-                {
+    }
+    break;
+    case 56:
+    {
 
-                }
-                break;
-                case 57:
-                {
-                    exit = true;
+    }
+    break;
+    case 57:
+    {
+        exit = true;
 
-                }
-                break;
-                default:
-                {
-                    txtNoOpcion(op);
-                    txtPresioneTeclaParaContinuar();
-                }
-                break;
-            }
+    }
+    break;
+    default:
+    {
+        txtElijaOp();
+        txtNoOpcion(op);
+        txtPresioneTeclaParaContinuar();
+    }
+    break;
+    }
     return exit;
 }
 
@@ -141,66 +143,67 @@ bool subAlumnos(char *op)
 ============================================================================= **/
 bool subMaterias(char *op)
 {
-        bool exit=false;
-        switch(validarOpcionPrincipal(op))
-        {
-                case 49:
-                {
-                    //ALTA DE MATERIAS
-                    altaMateria();
-                }
-                break;
-                case 50:
-                {
-                    //LISTADO DE MATERIAS
-                    fMostrarListadoMaterias();
-                }
-                break;
-                case 51:
-                {
-                    //MODIFICAR MATERIAS.
-                    modificarMateria();
-                }
-                break;
-                case 52:
-                {
-                    //BAJA DE MATERIAS.
-                    bajaMateria();
-                }
-                break;
-                case 53:
-                {
-                    //LISTADO DE ALUMNOS POR MATERIA
-                }
-                break;
-                case 54:
-                {
+    bool exit=false;
+    switch(validarOpcionPrincipal(op))
+    {
+    case 49:
+    {
+        //ALTA DE MATERIAS
+        altaMateria();
+    }
+    break;
+    case 50:
+    {
+        //LISTADO DE MATERIAS
+        fMostrarListadoMaterias();
+    }
+    break;
+    case 51:
+    {
+        //MODIFICAR MATERIAS.
+        modificarMateria();
+    }
+    break;
+    case 52:
+    {
+        //BAJA DE MATERIAS.
+        bajaMateria();
+    }
+    break;
+    case 53:
+    {
+        //LISTADO DE ALUMNOS POR MATERIA
+    }
+    break;
+    case 54:
+    {
 
-                }
-                break;
-                case 55:
-                {
+    }
+    break;
+    case 55:
+    {
 
-                }
-                break;
-                case 56:
-                {
+    }
+    break;
+    case 56:
+    {
 
-                }
-                break;
-                case 57:
-                {
-                    exit = true;
+    }
+    break;
+    case 57:
+    {
+        exit = true;
 
-                }
-                break;
-                default:
-                {
-                    txtNoOpcion(op);
-                    txtPresioneTeclaParaContinuar();
-                }
-                break;
-        }
+    }
+    break;
+    default:
+    {
+        txtElijaOp();
+        txtNoOpcion(op);
+        txtPresioneTeclaParaContinuar();
+    }
+    break;
+    }
     return exit;
 }
 
@@ -220,8 +223,8 @@ void menuPpal()
         txtMenuPrincipal();
         sys::getline(op,1);
         //MATERIAS
-    switch(validarOpcionPrincipal(op))
-    {
+        switch(validarOpcionPrincipal(op))
+        {
         case 49:
         {
             bool salirM = false;
@@ -283,13 +286,14 @@ void menuPpal()
         break;
         default:
         {
-             sys::cls();
+            sys::cls();
+            txtElijaOp();
             txtNoOpcion(op);
             txtPresioneTeclaParaContinuar();
             salir = true;
         }
         }
-        }
+    }
 }
 
 

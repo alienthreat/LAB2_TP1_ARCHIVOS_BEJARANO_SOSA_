@@ -101,7 +101,8 @@ bool grabarAlumnoModificado(struct tAlumno reg,int pos)
     FILE *p;
     bool escribio = false;
     p=fopen(ALUMNOS, "rb+");
-    if(p==NULL)return escribio;
+    if(p==NULL)
+        return escribio;
     fseek(p,pos*sizeof reg,0);
     escribio=fwrite(&reg, sizeof(reg), 1, p);
     fclose(p);
@@ -141,7 +142,7 @@ bool altaAlumno()
     //ACÁ SE DEBERÍA PREGUNTAR SI SE DESEA ASIGNAR EL ALUMNO A MATERIAS
     if(c)
     {
-     txtCargaExitosa();
+        txtCargaExitosa();
     }
     else
 
@@ -225,19 +226,27 @@ int buscarAlumno(int legajo, tAlumno reg)
 void listarAlumnos(tAlumno reg)
 {
     FILE *p;
+    int valMaterias = 0;
     p=fopen(ALUMNOS, "rb");
     if(p!=NULL)
     {
         while(fread(&reg, sizeof(tAlumno), 1, p)==1)
         {
-            mostrarAlumno(reg);
+            if(!reg.eliminado)
+            {
+                mostrarAlumno(reg);
+                 valMaterias++;
+            }
+
 
         }
     }
-     else
+    else
     {
-        txtSinRegistros();
+        txtArchivoVacio();
     }
+    if(valMaterias=0)
+        txtSinRegistros();
     fclose(p);
 
 }
@@ -250,11 +259,7 @@ void listarAlumnos(tAlumno reg)
 void fMostrarListadoAlumnos()
 {
     tAlumno reg;
-    if(!reg.eliminado)
-    {
-        listarAlumnos(reg);
-    }
-
+    listarAlumnos(reg);
     txtPresioneTeclaParaContinuar();
 }
 /**=============================================================================
@@ -319,10 +324,12 @@ void bajaAlumno()
     if(grabarAlumnoModificado(reg,pos))  //
     {
         cout<<"ALUMNO ELIMINADO"<<endl;
+        txtPresioneTeclaParaContinuar();
     }
     else
     {
         cout<<"NO SE PUDO ELIMINAR EL ALUMNO"<<endl;
+        txtPresioneTeclaParaContinuar();
     }
 }
 
