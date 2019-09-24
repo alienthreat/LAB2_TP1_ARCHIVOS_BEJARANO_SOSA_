@@ -75,38 +75,46 @@ bool crearArchivo(const char *url)
     return creado;
 }
 /**=============================================================================
- FUNCION : corroborar(tMateria reg)
- ACCION : listar las materias del archivo
- PARAMETROS: tMateria reg
+ FUNCION : void mostrarMateria(struct tMaterias reg)
+ ACCION : muestra por pantalla la materia que recibe por parametro
+ PARAMETROS: tMaterias reg
  DEVUELVE : nada
 ============================================================================= **/
-void listarMaterias(tMateria reg)
+void mostrarMateria(tMateria reg)
+{
+    txtCargaMateria(2);
+    txtCargaMateria(1);
+    txtTab();
+    txtCargaMateria(3);
+    cout << ""<< endl;
+    if(!reg.eliminado)
+    {
+
+        cout<< " \t \t " <<  reg.id_materia << " \t \t "  << reg.nombre << " \t \t " << reg.profesor <<endl;
+    }
+
+}
+/**=============================================================================
+ FUNCION : contarMaterias(tMateria reg)
+ ACCION : listar las materias del archivo
+ PARAMETROS: tMateria reg
+ DEVUELVE : cantidad de materias
+============================================================================= **/
+int contarMaterias(tMateria reg)
 {
     FILE *p;
-    int valMaterias = 0;
+    int qtyMaterias = 0;
     p=fopen(MATERIAS, "rb");
     if(p!=NULL)
     {
         while(fread(&reg, sizeof(tMateria), 1, p)==1)
         {
-            if(!reg.eliminado)
-            {
-                mostrarMateria(reg);
-                valMaterias++;
-            }
-
+                qtyMaterias++;
         }
     }
-    else
-    {
-        txtArchivoVacio();
-    }
-
-    if(valMaterias=0 )
-        txtSinRegistros();
-
+        if(qtyMaterias>0) qtyMaterias++;
     fclose(p);
-
+    return qtyMaterias;
 }
 
 
@@ -131,23 +139,30 @@ bool grabarMateria(tMateria mat)
 }
 
 /**=============================================================================
- FUNCION : void menuPpal()
- ACCION : Funcion del Menu Principal
- PARAMETROS: nada
- DEVUELVE : nada
+ FUNCION : void cargarMateria( tMateria *mreg, int qty)
+ ACCION : permite la carga de una materia
+ PARAMETROS: tMateria *mreg, int qty
+ DEVUELVE : un booleano si logra cargarlo o no.
 ============================================================================= **/
-bool cargarMateria( tMateria *mreg)
+bool cargarMateria( tMateria *mreg, int qty)
 {
     bool resul = false;
     txtTabs();
+
     cout << "COMPLETE LOS SUGUIENTES CAMPOS " << endl;
     char materia[50],profesor[50];
     int id;
+    if(qty == 0)
+    {
+        id = 1;
+    }
+    else
+    {
+            id = qty;
+    }
+
     txtCargaMateria(1);
     sys::getline(materia,50);
-    txtCargaMateria(2);
-    cin >> id;
-    cin.ignore();
     txtCargaMateria(3);
     sys::getline(profesor,50);
     strcpy(mreg->nombre,materia);
@@ -233,8 +248,10 @@ void cargaModificada(tMateria *reg)
 bool altaMateria()
 {
     tMateria reg;
+
+        int qty = contarMaterias(reg);
     //struct tRelacional mreg; //ACÁ TAMBIÉN CARGO EL ID DE LA MATERIA EN EL ARCHIVO RELACIONAL
-    bool c = cargarMateria(&reg);
+    bool c = cargarMateria(&reg,qty);
     if(c)
     {
         txtCargaExitosa();
@@ -246,26 +263,7 @@ bool altaMateria()
     return c;
 }
 
-/**=============================================================================
- FUNCION : void mostrarMateria(struct tMaterias reg)
- ACCION : muestra por pantalla la materia que recibe por parametro
- PARAMETROS: tMaterias reg
- DEVUELVE : nada
-============================================================================= **/
-void mostrarMateria(tMateria reg)
-{
-    txtCargaMateria(2);
-    txtCargaMateria(1);
-    txtTab();
-    txtCargaMateria(3);
-    cout << ""<< endl;
-    if(!reg.eliminado)
-    {
 
-        cout<< " \t \t " <<  reg.id_materia << " \t \t "  << reg.nombre << " \t \t " << reg.profesor <<endl;
-    }
-
-}
 /**=============================================================================
  FUNCION :struct tMaterias leerRegistroMateria(int pos)
  ACCION : solicita la posicion de un registro y lo busca en el archivo.
