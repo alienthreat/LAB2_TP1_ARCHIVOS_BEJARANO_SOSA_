@@ -50,13 +50,9 @@ char validarOpcionPrincipal(char* opcion)
         }
         else
         {
-            cout << endl;
             txtElijaOp();
-            txtNoOpcion(opcion);
-//            textoPresioneTeclaParaContinuar();
-            sys::cls();
-//            textoMenuPrincipal();
             sys::getline(opcion,1);
+            txtNoOpcion(opcion);
         }
     }
     return 'e';
@@ -128,7 +124,7 @@ bool subAlumnos(char *op)
     break;
     default:
     {
-        txtElijaOp();
+        cout << endl;
         txtNoOpcion(op);
         txtPresioneTeclaParaContinuar();
     }
@@ -203,7 +199,6 @@ bool subMaterias(char *op)
     break;
     default:
     {
-        txtElijaOp();
         txtNoOpcion(op);
         txtPresioneTeclaParaContinuar();
     }
@@ -291,11 +286,8 @@ void menuPpal()
         break;
         default:
         {
-            sys::cls();
-            txtElijaOp();
             txtNoOpcion(op);
             txtPresioneTeclaParaContinuar();
-            salir = true;
         }
         }
     }
