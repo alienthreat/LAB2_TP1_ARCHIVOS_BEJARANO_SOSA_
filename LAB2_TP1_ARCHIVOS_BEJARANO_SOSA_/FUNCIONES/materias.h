@@ -96,6 +96,7 @@ void mostrarMateria(tMateria reg)
 ============================================================================= **/
 int contarMaterias(tMateria reg)
 {
+
     FILE *p;
     int qtyMaterias = 0;
     p=fopen(MATERIAS, "rb");

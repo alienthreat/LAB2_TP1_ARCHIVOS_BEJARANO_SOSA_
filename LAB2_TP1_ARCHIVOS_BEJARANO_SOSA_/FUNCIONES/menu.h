@@ -207,6 +207,74 @@ bool subMaterias(char *op)
 }
 
 /**=============================================================================
+ FUNCION : void subParcial()
+ ACCION : Muestra y permite el acceso a las funciones que indican los puntos del parcial
+ PARAMETROS: nada
+ DEVUELVE : nada
+============================================================================= **/
+bool subParcial(char *op)
+{
+    bool exit=false;
+    switch(validarOpcionPrincipal(op))
+    {
+    case 49:
+    {
+        //ELIMINAR ALUMNO:
+        bajaAlumno();
+    }
+    break;
+    case 50:
+    {
+        //MOSTRAR ALUMNOS
+        fMostrarListadoAlumnosEliminados();
+    }
+    break;
+    case 51:
+    {
+
+    }
+    break;
+    case 52:
+    {
+
+    }
+    break;
+    case 53:
+    {
+
+    }
+    break;
+    case 54:
+    {
+
+    }
+    break;
+    case 55:
+    {
+
+    }
+    break;
+    case 56:
+    {
+
+    }
+    break;
+    case 57:
+    {
+        exit = true;
+    }
+    break;
+    default:
+    {
+        txtNoOpcion(op);
+        txtPresioneTeclaParaContinuar();
+    }
+    break;
+    }
+    return exit;
+}
+
+/**=============================================================================
  FUNCION : void menuPpal()
  ACCION : Funcion del Menu Principal
  PARAMETROS: nada
@@ -251,7 +319,15 @@ void menuPpal()
         break;
         case 51:
         {
+            bool salirM = false;
+            while(!salirM)
+            {
 
+                sys::cls();
+                txtParcial();
+                sys::getline(op,1);
+                salirM=subParcial(op);
+            }
         }
         break;
         case 52:

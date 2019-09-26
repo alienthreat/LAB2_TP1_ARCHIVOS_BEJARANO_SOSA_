@@ -26,6 +26,7 @@
 using namespace std;
 const char MXA[] = "./ARCHIVOS/MXA.DATA";
 
+
 /**=============================================================================
  FUNCION : struct tMaterias_x_Alumno()
  ACCION : estructura de las materias x alumno

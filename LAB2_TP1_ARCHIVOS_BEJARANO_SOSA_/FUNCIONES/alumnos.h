@@ -201,6 +201,26 @@ void mostrarAlumno(tAlumno reg)
         cout<<""<<endl;
     }
 }
+
+/**=============================================================================
+ FUNCION : void mostrarAlumnoeliminado(struct tAlumno reg)
+ ACCION : muestra por pantalla el alumno eliminado que recibe por parametro
+ PARAMETROS: tAlumno reg
+ DEVUELVE : nada
+============================================================================= **/
+void mostrarAlumnoEliminado(tAlumno reg)
+{
+    txtCargaAlumno(2);
+    txtCargaAlumno(1);
+    txtCargaAlumno(3);
+    txtTab();
+    cout << ""<< endl;
+    if(reg.eliminado)
+    {
+        cout<< " \t \t " <<  reg.legajo << " \t \t "  << reg.nombre << " \t \t \t \t" << reg.apellido <<endl;
+        cout<<""<<endl;
+    }
+}
 /**=============================================================================
  FUNCION :struct tAlumnos leerRegistroalumno(int pos)
  ACCION : solicita la posicion de un registro y lo busca en el archivo.
@@ -280,6 +300,41 @@ void listarAlumnos(tAlumno reg)
     fclose(p);
 
 }
+
+/**=============================================================================
+ FUNCION : listarAlumnosEliminados(tAlumno reg)
+ ACCION : listar los alumnos eliminados del archivo
+ PARAMETROS: tAlumno reg
+ DEVUELVE : nada
+============================================================================= **/
+void listarAlumnosEliminados(tAlumno reg)
+{
+    FILE *p;
+    int valMaterias = 0;
+    p=fopen(ALUMNOS, "rb");
+    if(p!=NULL)
+    {
+        while(fread(&reg, sizeof(tAlumno), 1, p)==1)
+        {
+            if(reg.eliminado)
+            {
+                mostrarAlumnoEliminado(reg);
+                valMaterias++;
+            }
+
+
+        }
+    }
+    else
+    {
+        txtArchivoVacio();
+    }
+    if(valMaterias=0)
+        txtSinRegistros();
+    fclose(p);
+
+}
+
 /**=============================================================================
  FUNCION : void fMostrarListadoAlumnos()
  ACCION : muestra por pantalla los alumnos
@@ -290,7 +345,23 @@ void fMostrarListadoAlumnos()
 {
     tAlumno reg;
     listarAlumnos(reg);
+    txtPresioneTeclaParaContinuar();
 }
+
+/**=============================================================================
+ FUNCION : void fMostrarListadoAlumnosEliminados()
+ ACCION : muestra por pantalla los alumnos eliminados
+ PARAMETROS: nada
+ DEVUELVE : nada
+============================================================================= **/
+void fMostrarListadoAlumnosEliminados()
+{
+    tAlumno reg;
+    listarAlumnosEliminados(reg);
+        txtPresioneTeclaParaContinuar();
+
+}
+
 /**=============================================================================
  FUNCION : void modificarAlumno()
  ACCION : Modificar una alumno del archivo

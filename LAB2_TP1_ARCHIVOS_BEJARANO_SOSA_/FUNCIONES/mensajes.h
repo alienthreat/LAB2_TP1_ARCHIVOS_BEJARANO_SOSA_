@@ -132,8 +132,8 @@ void txtMenuPrincipal()
     txtLineas();
     txtTabs(); cout << "||              1- MATERIAS                                 ||" << endl;
     txtTabs(); cout << "||              2- ALUMNOS                                  ||" << endl;
+    txtTabs(); cout << "||              3- PARCIAL                                  ||" << endl;
     txtLineas();
-    txtTabs(); cout << "||              3- DLC BLOQUEDO                             ||" << endl;
     txtTabs(); cout << "||              4- DLC BLOQUEADO                            ||" << endl;
     txtTabs(); cout << "||              5- DLC BLOQUEDO                             ||" << endl;
     txtTabs(); cout << "||              6- DLC BLOQUEADO                            ||" << endl;
@@ -198,6 +198,34 @@ void txtAlumnos()
     txtTabs(); cout << "||              X- DLC BLOQUEADO                           ||" << endl;
     txtLineas();
     txtTabs(); cout << "||       0- SI ES TU PRIMERA VEZ CON LA APP, ENTRA ACA!    ||" << endl;
+    txtLineas();
+    txtVolverMenu();
+    txtLineas();
+    cout << endl;
+    txtElijaOp();
+
+}
+
+/**=============================================================================
+ FUNCION : void txtMaterias()
+ ACCION : texto del Menu materias
+ PARAMETROS: nada
+ DEVUELVE : nada
+============================================================================= **/
+void txtParcial()
+{
+    txtLineas();
+    txtTabs(); cout << "||------------------  MENU PARCIAL- ------------------------||" << endl;
+    txtLineas();
+    txtTabs(); cout << "||              1- ELIMINAR ALUMNO                          ||" << endl;
+    txtTabs(); cout << "||              2- ALUMNOS ELIMINADOS                       ||" << endl;
+    txtLineas();
+    txtTabs(); cout << "||              3- DLC BLOQUEADO                            ||" << endl;
+    txtTabs(); cout << "||              3- DLC BLOQUEADO                            ||" << endl;
+    txtTabs(); cout << "||              7- DLC BLOQUEDO                             ||" << endl;
+    txtTabs(); cout << "||              8- DLC BLOQUEDO                             ||" << endl;
+    txtLineas();
+    txtTabs(); cout << "||       0- SI ES TU PRIMERA VEZ CON LA APP, ENTRA ACA!     ||" << endl;
     txtLineas();
     txtVolverMenu();
     txtLineas();
