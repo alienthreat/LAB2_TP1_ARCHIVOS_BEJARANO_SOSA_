@@ -82,13 +82,11 @@ bool crearArchivo(const char *url)
 ============================================================================= **/
 void mostrarMateria(tMateria reg)
 {
-    txtCargaMateria(2);
-    txtCargaMateria(1);
-    txtTab();
-    txtCargaMateria(3); cout << endl;
-
-        cout<< " \t \t " <<  reg.id_materia << " \t \t "  << reg.nombre << " \t \t " << reg.profesor <<endl;
-
+    txtLineas();
+    txtCargaMateria(2); cout<<reg.id_materia<<endl;
+    txtCargaMateria(1); cout<<"\t"<< reg.nombre<<endl;
+    txtCargaMateria(3); cout <<"\t"<<reg.profesor <<endl;
+    txtLineas();
 }
 /**=============================================================================
  FUNCION : contarMaterias(tMateria reg)

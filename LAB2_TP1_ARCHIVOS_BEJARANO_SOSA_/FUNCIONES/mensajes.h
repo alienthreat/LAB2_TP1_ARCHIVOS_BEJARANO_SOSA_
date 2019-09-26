@@ -64,7 +64,7 @@ void txtLineas()
 void txtPresioneTeclaParaContinuar()
 {
 
-    txtTabs(); cout << " Presione una tecla para continuar.";
+    txtTabs(); cout << " Presione ENTER para continuar.";
     cin.get();
     cin.ignore();
 }
@@ -252,15 +252,15 @@ void txtCargaMateria(int val)
 {
     if(val== 1)
     {
-        txtTabs();cout<<" MATERIA " ;
+       txtTabs();txtTabs(); cout<<"\t"<<"MATERIA: " ;
     }
     else if(val == 2 )
     {
-        txtTabs(); cout << "ID_MATERIA "  ;
+         txtTabs(); cout << "||ID_MATERIA: "  ;
     }
     else if(val == 3)
     {
-        txtTabs(); cout << "PROFESOR " ;
+        txtTabs();txtTabs(); cout <<"\t"<< "PROFESOR: " ;
     }
 
 }

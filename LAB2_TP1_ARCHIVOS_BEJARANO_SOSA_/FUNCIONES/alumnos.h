@@ -197,7 +197,7 @@ void mostrarAlumno(tAlumno reg)
     cout << ""<< endl;
     if(!reg.eliminado)
     {
-        cout<< " \t \t " <<  reg.legajo << " \t \t "  << reg.nombre << " \t \t \t " << reg.apellido <<endl;
+        cout<< " \t \t " <<  reg.legajo << " \t \t "  << reg.nombre << " \t \t \t \t" << reg.apellido <<endl;
         cout<<""<<endl;
     }
 }
