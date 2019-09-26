@@ -112,6 +112,30 @@ void txtTabs()
     cout << "\t \t";
 }
 /**==============================================================================
+ FUNCIÓN : txtAyuda()
+ ACCIÓN : Muestra la ayuda en pantalla
+ PARAMETROS: Ninguno.
+ DEVUELVE : nada.
+============================================================================== */
+void txtAyuda()
+{
+    cout << "AYUDA:"<<endl;
+    cout<< "MENU PRINCIPAL: 1 - MATERIAS:"<<endl;
+    cout<< "PERMITE EL ACCESO A LAS FUNCIONES DE ABM Y LISTADO DE MATERIAS,"<<endl;
+    cout<<"ADEMAS DE LA POSIBILIDAD DE REALIZAR ASIGNACION DE ALUMNOS A LAS MATERIAS"<<endl;
+    cout<<""<<endl;
+    cout<< "                2 - ALUMNOS:"<<endl;
+    cout<< "PERMITE EL ACCESO A LAS FUNCIONES DE ABM Y LISTADO DE ALUMNOS,"<<endl;
+    cout<<"ADEMAS DE LA POSIBILIDAD DE REALIZAR ASIGNACION DE MATERIAS A LOS ALUMNOS"<<endl;
+    cout<<""<<endl;
+    cout<< "                3 - PARCIAL:"<<endl;
+    cout<< "PERMITE EL ACCESO A LAS FUNCIONES DEL PARCIAL,"<<endl;
+
+    cout<<"NOTA IMPORTANTE: EN ALGUNOS CASOS, LUEGO DE HABER PRESIONADO ENTER COMO LO INDICA"<<endl;
+    cout<<"EL PROGRAMA, ES NECESARIO VOLVER A PRESIONARLO :( "<<endl;
+}
+
+/**==============================================================================
  FUNCIÓN : txtTab()
  ACCIÓN : tabulaciones para texto
  PARAMETROS: Ninguno.
@@ -121,6 +145,7 @@ void txtTab()
 {
     cout << "\t ";
 }
+
 
 /**==============================================================================//==============================================================================
  FUNCIÓN : txtLineas()
