@@ -334,7 +334,7 @@ void menuPpal()
         {
             sys::cls();
             txtAyuda();
-            txtPresioneTeclaParaContinuar();
+            txtPresioneENTERDobleParaContinuar();
         }
         break;
         case 53:

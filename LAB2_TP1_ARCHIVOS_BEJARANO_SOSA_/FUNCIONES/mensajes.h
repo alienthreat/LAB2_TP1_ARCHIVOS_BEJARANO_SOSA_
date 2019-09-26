@@ -131,8 +131,9 @@ void txtAyuda()
     cout<< "                3 - PARCIAL:"<<endl;
     cout<< "PERMITE EL ACCESO A LAS FUNCIONES DEL PARCIAL,"<<endl;
 
-    cout<<"NOTA IMPORTANTE: EN ALGUNOS CASOS, LUEGO DE HABER PRESIONADO ENTER COMO LO INDICA"<<endl;
+    cout<<"NOTA IMPORTANTE: EN ALGUNOS CASOS, LUEGO DE HABER PRESIONADO ENTER COMO INDICA"<<endl;
     cout<<"EL PROGRAMA, ES NECESARIO VOLVER A PRESIONARLO :( "<<endl;
+    cout<<""<<endl;
 }
 
 /**==============================================================================
@@ -252,11 +253,9 @@ void txtMenuPrincipal()
     txtTabs(); cout << "||              2- ALUMNOS                                  ||" << endl;
     txtTabs(); cout << "||              3- PARCIAL                                  ||" << endl;
     txtLineas();
-    txtTabs(); cout << "||              4- DLC BLOQUEADO                            ||" << endl;
+    txtTabs(); cout << "||              4- AYUDA                                    ||" << endl;
     txtTabs(); cout << "||              5- DLC BLOQUEDO                             ||" << endl;
     txtTabs(); cout << "||              6- DLC BLOQUEADO                            ||" << endl;
-    txtLineas();
-    txtTabs(); cout << "||       0- SI ES TU PRIMERA VEZ CON LA APP, ENTRA ACA!     ||" << endl;
     txtLineas();
     txtVolverMenu();
     txtLineas();
@@ -283,10 +282,8 @@ void txtMaterias()
     txtTabs(); cout << "||              5- ASIGNACION DE MATERIA A ALUMNOS          ||" << endl;
     txtTabs(); cout << "||              6- LISTADO DE ALUMNOS CON SUS MATERIAS      ||" << endl;
     txtLineas();
-    txtTabs(); cout << "||              7- DLC BLOQUEDO                             ||" << endl;
-    txtTabs(); cout << "||              8- DLC BLOQUEDO                             ||" << endl;
-    txtLineas();
-    txtTabs(); cout << "||       0- SI ES TU PRIMERA VEZ CON LA APP, ENTRA ACA!     ||" << endl;
+    txtTabs(); cout << "||       9 - SI ES TU PRIMERA VEZ CON LA APP, PODES VER     ||" << endl;
+    txtTabs(); cout << "||          LA AYUDA EN EL MENU PRINCIPAL                   ||" << endl;
     txtLineas();
     txtVolverMenu();
     txtLineas();
@@ -315,7 +312,8 @@ void txtAlumnos()
     txtTabs(); cout << "||              X- DLC BLOQUEADO                           ||" << endl;
     txtTabs(); cout << "||              X- DLC BLOQUEADO                           ||" << endl;
     txtLineas();
-    txtTabs(); cout << "||       0- SI ES TU PRIMERA VEZ CON LA APP, ENTRA ACA!    ||" << endl;
+    txtTabs(); cout << "||       9 - SI ES TU PRIMERA VEZ CON LA APP, PODES VER     ||" << endl;
+    txtTabs(); cout << "||          LA AYUDA EN EL MENU PRINCIPAL                   ||" << endl;
     txtLineas();
     txtVolverMenu();
     txtLineas();
@@ -343,7 +341,8 @@ void txtParcial()
     txtTabs(); cout << "||              7- DLC BLOQUEDO                             ||" << endl;
     txtTabs(); cout << "||              8- DLC BLOQUEDO                             ||" << endl;
     txtLineas();
-    txtTabs(); cout << "||       0- SI ES TU PRIMERA VEZ CON LA APP, ENTRA ACA!     ||" << endl;
+    txtTabs(); cout << "||       9 - SI ES TU PRIMERA VEZ CON LA APP, PODES VER     ||" << endl;
+    txtTabs(); cout << "||          LA AYUDA EN EL MENU PRINCIPAL                   ||" << endl;
     txtLineas();
     txtVolverMenu();
     txtLineas();
