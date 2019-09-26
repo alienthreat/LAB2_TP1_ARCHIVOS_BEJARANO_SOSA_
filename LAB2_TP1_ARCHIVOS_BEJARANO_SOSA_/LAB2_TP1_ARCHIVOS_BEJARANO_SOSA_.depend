@@ -26,7 +26,7 @@
 	"./relacional.h"
 	"./mensajes.h"
 
-1569292058 c:\users\mtlwa\documents\github\lab2_tp1_archivos_bejarano_sosa_\lab2_tp1_archivos_bejarano_sosa_\funciones\materias.h
+1569469714 c:\users\mtlwa\documents\github\lab2_tp1_archivos_bejarano_sosa_\lab2_tp1_archivos_bejarano_sosa_\funciones\materias.h
 	<iostream>
 	<cstdlib>
 	<cstdio>
@@ -36,7 +36,7 @@
 	"../CSYSTEM/csystem.h"
 	"./mensajes.h"
 
-1569453391 c:\users\mtlwa\documents\github\lab2_tp1_archivos_bejarano_sosa_\lab2_tp1_archivos_bejarano_sosa_\funciones\mensajes.h
+1569469564 c:\users\mtlwa\documents\github\lab2_tp1_archivos_bejarano_sosa_\lab2_tp1_archivos_bejarano_sosa_\funciones\mensajes.h
 	<iostream>
 	<cstdlib>
 	<cstdio>
@@ -45,7 +45,7 @@
 	<windows.h>
 	"../CSYSTEM/csystem.h"
 
-1569292058 c:\users\mtlwa\documents\github\lab2_tp1_archivos_bejarano_sosa_\lab2_tp1_archivos_bejarano_sosa_\funciones\alumnos.h
+1569469121 c:\users\mtlwa\documents\github\lab2_tp1_archivos_bejarano_sosa_\lab2_tp1_archivos_bejarano_sosa_\funciones\alumnos.h
 	<cstdlib>
 	<iostream>
 	<cstdio>
@@ -56,7 +56,7 @@
 	"./mensajes.h"
 	"./menu.h"
 
-1569466207 c:\users\mtlwa\documents\github\lab2_tp1_archivos_bejarano_sosa_\lab2_tp1_archivos_bejarano_sosa_\funciones\relacional.h
+1569472846 c:\users\mtlwa\documents\github\lab2_tp1_archivos_bejarano_sosa_\lab2_tp1_archivos_bejarano_sosa_\funciones\relacional.h
 	<iostream>
 	<cstdlib>
 	<cstdio>

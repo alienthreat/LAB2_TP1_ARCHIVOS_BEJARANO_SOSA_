@@ -85,13 +85,9 @@ void mostrarMateria(tMateria reg)
     txtCargaMateria(2);
     txtCargaMateria(1);
     txtTab();
-    txtCargaMateria(3);
-    cout << ""<< endl;
-    if(!reg.eliminado)
-    {
+    txtCargaMateria(3); cout << endl;
 
         cout<< " \t \t " <<  reg.id_materia << " \t \t "  << reg.nombre << " \t \t " << reg.profesor <<endl;
-    }
 
 }
 /**=============================================================================
@@ -213,31 +209,6 @@ void cargaModificada(tMateria *reg)
     txtPresioneTeclaParaContinuar();
 }
 
-/**=============================================================================
- FUNCION : void preModMateria(int id, tMaterias reg)
- ACCION : Funcion para buscar la posicion en el archivo de la materia.
- PARAMETROS: id a buscar, struct tMateria.
- DEVUELVE : posicion de la materia en el archivo
-============================================================================= **/
-//void preModMateria(int id, tMateria reg)
-//{
-//
-//
-//    FILE *p;
-//    p=fopen(MATERIAS, "rb");
-//    if(p!=NULL)
-//    {
-//        while(fread(&reg, sizeof reg, 1, p)==1)
-//        {
-//            if(reg.id_materia==id)
-//            {
-//                cargaModificada(&reg);
-//
-//            }
-//        }
-//        fclose(p);
-//    }
-//}
 
 /**=============================================================================
  FUNCION : bool altaMateria()

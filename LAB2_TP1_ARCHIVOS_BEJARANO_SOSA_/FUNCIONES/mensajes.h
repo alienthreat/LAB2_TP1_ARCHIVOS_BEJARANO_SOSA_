@@ -264,10 +264,14 @@ void txtCargaMateria(int val)
     }
 
 }
-
+/**=============================================================================
+ FUNCIÓN : void txtCargaMateria(int val)
+ ACCIÓN : muestra en pantalla el mensaje de carga
+ PARAMETROS: int val, recibe nro de mensaje a mostrar.
+ DEVUELVE : nada.
+============================================================================= **/
 void txtCargaAlumno(int val)
 {
-    cout << endl;
 
     if(val== 1)
     {

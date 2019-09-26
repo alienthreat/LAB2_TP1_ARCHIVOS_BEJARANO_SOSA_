@@ -1,6 +1,17 @@
 #ifndef RELACIONAL_H_INCLUDED
 #define RELACIONAL_H_INCLUDED
+/** #############################################################################
+ ARCHIVO             : relacional.h
+ AUTOR/ES            : GABRIEL BEJARANO
+ VERSION             : 0.01 beta.
+ FECHA DE CREACION   : 07/09/2019.
+ ULTIMA ACTUALIZACION: 25/09/2019.
+ LICENCIA            : GPL (General Public License) - Version 3.
 
+  **************************************************************************/
+/*****************************************************************************
+                             INCLUSIONES PERSONALES
+/*=============================================================================**/
 #include <iostream>
 #include <cstdlib>  /** Libreria estandar que contiene la funcion exit(). */
 #include <cstdio>   /** Libreria para manejo de archivos. */
@@ -35,13 +46,15 @@ struct tMaterias_x_Alumno
  PARAMETROS:struct tMaterias_x_Alumno reg.
  DEVUELVE : true si pudo grabar correctamente, false si no fue asi
 ============================================================================= **/
-bool grabarMateriaRelacional(tMaterias_x_Alumno reg){
-  FILE *p;
-  p=fopen(MXA, "ab");
-  if(p==NULL) return false;
-  bool escribio=fwrite(&reg, sizeof reg, 1, p);
-  fclose(p);
-  return escribio;
+bool grabarMateriaRelacional(tMaterias_x_Alumno reg)
+{
+    FILE *p;
+    p=fopen(MXA, "ab");
+    if(p==NULL)
+        return false;
+    bool escribio=fwrite(&reg, sizeof reg, 1, p);
+    fclose(p);
+    return escribio;
 }
 
 /**=============================================================================
@@ -58,7 +71,8 @@ bool verificarMateria(int id)
         exit=true;
         return exit;
     }
-    struct tMateria mreg; int pos;
+    struct tMateria mreg;
+    int pos;
     pos=buscarMateria(id, mreg);
     if(pos==-1)
     {
@@ -84,7 +98,8 @@ bool verificarAlumno(int legajo)
         exit=true;
         return exit;
     }
-    struct tAlumno areg; int pos;
+    struct tAlumno areg;
+    int pos;
     pos=buscarAlumno(legajo,areg);
     if(pos==-1)
     {
@@ -96,8 +111,55 @@ bool verificarAlumno(int legajo)
     return exit;
 }
 /**=============================================================================
- FUNCION : struct tMaterias_x_Alumno()
- ACCION : estructura de las materias x alumno
+ FUNCION : void mostrarMxA(tMaterias_x_Alumno reg)
+ ACCION : muestra por pantalla la materia que recibe por parametro
+ PARAMETROS: tMaterias reg
+ DEVUELVE : nada
+============================================================================= **/
+void mostrarMxA(tMaterias_x_Alumno reg)
+{
+        cout<< " \t \t \t ||          ID LEGAJO  \t \t \t    ID MATERIA \t \t  ||" << endl;
+        cout<< " \t \t \t ||    " <<  reg.legajo << " \t \t \t"  << reg.id_materia << " \t \t \t \t ||"  <<endl;
+
+}
+/**=============================================================================
+ FUNCION : void listarMxA(tMaterias_x_Alumno reg)
+ ACCION : listar las materias del archivo
+ PARAMETROS: nada
+ DEVUELVE : nada
+============================================================================= **/
+void listarMxA(tMaterias_x_Alumno reg)
+{
+    FILE *p;
+    int valMaterias = 0;
+    p=fopen(MXA, "rb");
+    if(p!=NULL)
+    {
+        while(fread(&reg, sizeof(tMaterias_x_Alumno), 1, p)==1)
+        {
+            if(!reg.eliminado)
+            {
+                mostrarMxA(reg);
+                valMaterias++;
+            }
+        }
+        fclose(p);
+    }
+    else
+    {
+        txtArchivoVacio();
+    }
+
+    if(valMaterias=0 )
+    txtSinRegistros();
+
+
+
+}
+
+/**=============================================================================
+ FUNCION : void AsignarAtoM()
+ ACCION : Permite asociar un alumno a una materia
  PARAMETROS:nada.
  DEVUELVE : nada.
 ============================================================================= **/
@@ -121,35 +183,45 @@ void AsignarAtoM()
     }
     while(!exit)
     {
-     sys::cls();
-    fMostrarListadoMaterias();
-    txtTab();
-    txtPresioneTeclaParaContinuar();
-    cout<<"Ingrese el ID de la materia que desea asignarle al alumno:"<<endl; //MOSTRAR LEGAJO Y NOMBRE
-    cout<<"NOTA: Ingrese 0 para finalizar la asignación de materias"<<endl;
-    cin>>id;
-    //VALIDA SI EL ID ES CORRECTO
-    exit=verificarMateria(id);
-    if(!exit)
-    {
-    reg.id_materia=id;
-    c=grabarMateriaRelacional(reg);
-        if(c)
-        {cout<<"ASIGNACION EXITOSA"<<endl;}
-        else
-        {cout<<"ERROR EN LA ASIGNACION"<<endl;}
-    }
+        sys::cls();
+        fMostrarListadoMaterias();
+        txtPresioneTeclaParaContinuar();
+        txtTabs();
+        cout    <<  "||_______________________________________________________________________||"<<endl;
+        txtTabs();
+        cout    <<  "||  NOTA: Ingrese 0 para finalizar la asignación de materias             ||"<<endl;
+        txtTabs();
+        cout    <<  "||-----------------------------------------------------------------------||"<<endl;
+        txtTabs();
+        cout    <<  "Ingrese el ID de la materia que desea asignarle al alumno:"<<endl; //MOSTRAR LEGAJO Y NOMBRE
+
+        cin>>id;
+        //VALIDA SI EL ID ES CORRECTO
+        exit=verificarMateria(id);
+        if(!exit)
+        {
+            reg.id_materia=id;
+            c=grabarMateriaRelacional(reg);
+            if(c)
+            {
+                cout<<"ASIGNACION EXITOSA"<<endl;
+            }
+            else
+            {
+                cout<<"ERROR EN LA ASIGNACION"<<endl;
+            }
+        }
     }
 }
 /**=============================================================================
- FUNCION : struct tMaterias_x_Alumno()
+ FUNCION : void AsignarMtoA()
  ACCION : estructura de las materias x alumno
  PARAMETROS:nada.
  DEVUELVE : nada.
 ============================================================================= **/
 void AsignarMtoA()
 {
-     sys::cls();
+    sys::cls();
     struct tMaterias_x_Alumno reg;
     int legajo, id_materia;
     bool exit=false, c=false;
@@ -161,28 +233,32 @@ void AsignarMtoA()
     exit=verificarMateria(id_materia);
     if(!exit)
     {
-    reg.id_materia=id_materia;
+        reg.id_materia=id_materia;
     }
     while(!exit)
     {
-     sys::cls();
-    fMostrarListadoAlumnos();
-    txtTab();
-    txtPresioneTeclaParaContinuar();
-    cout<<"Ingrese el legajo del alumno que se asignara a la materia:"<<endl;
-    cout<<"NOTA: Ingrese 0 para finalizar la asignación de alumnos"<<endl;
-    cin>>legajo;
-    //VALIDAR SI EL LEGAJO ES CORRECTO(Y SI EL ESTADO DE ALUMNO ES = TRUE)
-    exit=verificarAlumno(legajo);
-    if(!exit)
-    {
-    reg.legajo=legajo;
-    c=grabarMateriaRelacional(reg);
-    if(c)
-        {cout<<"ASIGNACION EXITOSA"<<endl;}
-    else
-        {cout<<"ERROR EN LA ASIGNACION"<<endl;}
-    }
+        sys::cls();
+        fMostrarListadoAlumnos();
+        txtTab();
+        txtPresioneTeclaParaContinuar();
+        cout<<"Ingrese el legajo del alumno que se asignara a la materia:"<<endl;
+        cout<<"NOTA: Ingrese 0 para finalizar la asignación de alumnos"<<endl;
+        cin>>legajo;
+        //VALIDAR SI EL LEGAJO ES CORRECTO(Y SI EL ESTADO DE ALUMNO ES = TRUE)
+        exit=verificarAlumno(legajo);
+        if(!exit)
+        {
+            reg.legajo=legajo;
+            c=grabarMateriaRelacional(reg);
+            if(c)
+            {
+                cout<<"ASIGNACION EXITOSA"<<endl;
+            }
+            else
+            {
+                cout<<"ERROR EN LA ASIGNACION"<<endl;
+            }
+        }
     }
 }
 
@@ -199,7 +275,6 @@ void mostrarAlumnosAsignados(int id_materia)
     struct tAlumno areg;
     FILE *p;
     int pos=-1;
-    int index=0;
     p=fopen(ALUMNOS, "rb");
     if(p!=NULL)
     {
@@ -207,98 +282,158 @@ void mostrarAlumnosAsignados(int id_materia)
         {
             if(reg.id_materia==id_materia)
             {
-                fclose(p);
                 //mostrar el alumno mediante el LEGAJO
                 int legajo = reg.legajo;
                 pos=buscarAlumno(legajo, areg);
                 areg=leerRegistroAlumno(pos);
                 mostrarAlumno(areg);
                 txtLineas();
+                fclose(p);
             }
-            index++;
         }
     }
 }
 /**=============================================================================
- FUNCION : struct tMaterias_x_Alumno()
- ACCION : estructura de las materias x alumno
- PARAMETROS:nada.
+ FUNCION : void mostrarMateriasAsignadas
+ ACCION : Muestra el listado de materias que fueron asignadas a los alumnos.
+ PARAMETROS: int legajo
  DEVUELVE : nada.
 ============================================================================= **/
-void mostrarMateriasAsignadas(int legajo){
+//void mostrarMateriasAsignadas(int legajo)
+//{
+//    struct tMaterias_x_Alumno reg;
+//    struct tMateria mreg;
+//    FILE *p;
+//    int pos=-1;
+//    p=fopen(MXA, "rb");
+//    if(p!=NULL)
+//    {
+//        while(fread(&reg, sizeof(tMaterias_x_Alumno), 1, p)==1)
+//        {
+//            if(reg.legajo==legajo)
+//            {
+//                fclose(p);
+//                //mostrar la materia mediante el ID
+//                int id_materia = reg.id_materia;
+//                pos=buscarMateria(id_materia, mreg);
+//                mreg=leerRegistroMateria(pos);
+//                mostrarMateria(mreg);
+//                txtLineas();
+//            }
+//        }
+//    }
+//}
+
+
+/**=============================================================================
+ FUNCION : void mostrarMateriasAsignadas
+ ACCION : Muestra el listado de materias que fueron asignadas a los alumnos.
+ PARAMETROS: nada
+ DEVUELVE : nada.
+============================================================================= **/
+void mostrarMateriasAsignadas()
+{
     struct tMaterias_x_Alumno reg;
-    struct tMateria mreg;
     FILE *p;
     int pos=-1;
-    int index=0;
-    p=fopen(MATERIAS, "rb");
+    p=fopen(MXA, "rb");
     if(p!=NULL)
     {
-        while(fread(&reg, sizeof(tMateria), 1, p)==1)
+        while(fread(&reg, sizeof(tMaterias_x_Alumno), 1, p)==1)
         {
-            if(reg.legajo==legajo)
+            if(!reg.eliminado)
             {
-                fclose(p);
-                //mostrar la materia mediante el ID
-                int id_materia = reg.id_materia;
-                pos=buscarMateria(id_materia, mreg);
-                mreg=leerRegistroMateria(pos);
-                mostrarMateria(mreg);
-                txtLineas();
+                listarMxA(reg);
             }
-            index++;
+             fclose(p);
         }
     }
 }
 /**=============================================================================
- FUNCION : struct tMaterias_x_Alumno()
- ACCION : estructura de las materias x alumno
+ FUNCION : void mostrarAsxM()
+ ACCION : muestra las materias asignadas por alumno
  PARAMETROS:nada.
  DEVUELVE : nada.
 ============================================================================= **/
-void mostrarAsxM(){
-     sys::cls();
-    bool exit=false;
-    while(!exit)
-    {
-    fMostrarListadoMaterias();
-    int id_materia;
-    txtTabs();
-    cout<<"Ingrese el ID de la materia cuyos alumnos desea ver:"<<endl;
-    cout<<"NOTA: Ingrese 0 para salir"<<endl;
-    cin>>id_materia;
-    exit=verificarMateria(id_materia);
-    txtLineas();
-    if(!exit)
-        {
-        mostrarAlumnosAsignados(id_materia);
-        }
-    }
-}
-/**=============================================================================
- FUNCION : struct tMaterias_x_Alumno()
- ACCION : estructura de las materias x alumno
- PARAMETROS:nada.
- DEVUELVE : nada.
-============================================================================= **/
-void mostrarMsxA(){
+void mostrarAsxM()
+{
     sys::cls();
     bool exit=false;
     while(!exit)
     {
-    fMostrarListadoAlumnos();
-    int legajo;
-    txtTabs();
-    cout<<"Ingrese el legajo del alumno cuya materias desea ver:"<<endl;
-    cout<<"NOTA: Ingrese 0 para salir"<<endl;
-    cin>>legajo;
-    exit=verificarAlumno(legajo);
-    txtLineas();
-    if(!exit)
+        fMostrarListadoMaterias();
+        int id_materia;
+        txtTabs();
+        cout<<"Ingrese el ID de la materia cuyos alumnos desea ver:"<<endl;
+        cout<<"NOTA: Ingrese 0 para salir"<<endl;
+        cin>>id_materia;
+        cin.ignore();
+        exit=verificarMateria(id_materia);
+        txtLineas();
+        if(!exit)
         {
-        mostrarMateriasAsignadas(legajo);
+            mostrarAlumnosAsignados(id_materia);
         }
     }
 }
+/**=============================================================================
+ FUNCION : void mostrarMsxA()
+ ACCION : muestra las materias x alumnos que tenga asignados
+ PARAMETROS:nada.
+ DEVUELVE : nada.
+============================================================================= **/
+void mostrarMsxA()
+{
+
+    sys::cls();
+    bool exit=false;
+//    while(!exit)
+//    {
+//         txtTabs();
+//        cout    <<  "||_______________________________________________________________________||"<<endl;
+//        txtTabs();
+//        cout    <<  "||  NOTA: Ingrese 0 para salir                                           ||"<<endl;
+//        txtTabs();
+//        cout    <<  "||-----------------------------------------------------------------------||"<<endl;
+//        txtLineas();
+        mostrarMateriasAsignadas();
+//        cin>>legajo;
+//        cin.ignore();
+//        exit=verificarAlumno(legajo);
+//    }
+cin.ignore();
+}
+/**=============================================================================
+ FUNCION : void mostrarMsxA()
+ ACCION : muestra las materias x alumnos que tenga asignados
+ PARAMETROS:nada.
+ DEVUELVE : nada.
+============================================================================= **/
+//void mostrarMsxA()
+//{
+//    sys::cls();
+//    bool exit=false;
+//    while(!exit)
+//    {
+//        fMostrarListadoAlumnos();
+//        int legajo;
+//         txtTabs();
+//        cout    <<  "||_______________________________________________________________________||"<<endl;
+//        txtTabs();
+//        cout    <<  "||  NOTA: Ingrese 0 para salir                                           ||"<<endl;
+//        txtTabs();
+//        cout    <<  "||-----------------------------------------------------------------------||"<<endl;
+//        txtTabs();
+//        txtTabs(); cout<<"  Ingrese el legajo del alumno cuya materias desea ver:";
+//        cin>>legajo;
+//        cin.ignore();
+//        exit=verificarAlumno(legajo);
+//        txtLineas();
+//        if(!exit)
+//        {
+//            mostrarMateriasAsignadas(legajo);
+//        }
+//    }
+//}
 
 #endif // RELACIONAL_H_INCLUDED

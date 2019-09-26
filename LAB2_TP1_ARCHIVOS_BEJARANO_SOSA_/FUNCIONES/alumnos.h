@@ -55,10 +55,11 @@ int contarAlumnos(tAlumno reg)
     {
         while(fread(&reg, sizeof(tAlumno), 1, p)==1)
         {
-                qtyAlumnos++;
+            qtyAlumnos++;
         }
     }
-    if(qtyAlumnos>0) qtyAlumnos++;
+    if(qtyAlumnos>0)
+        qtyAlumnos++;
     fclose(p);
     return qtyAlumnos;
 }
@@ -96,14 +97,14 @@ bool cargarAlumno(tAlumno *mreg, int qty)
     txtTabs();
     cout << "COMPLETE LOS SUGUIENTES CAMPOS " << endl;
     char nombre[50],apellido[50];
-     int legajo;
+    int legajo;
     if(qty == 0)
     {
         legajo = 1;
     }
     else
     {
-            legajo = qty;
+        legajo = qty;
     }
     txtCargaAlumno(1);
     sys::getline(nombre,50);
@@ -165,7 +166,7 @@ void cargaModificada(tAlumno *reg)
 bool altaAlumno()
 {
     tAlumno reg;
-     int qty = contarAlumnos(reg);
+    int qty = contarAlumnos(reg);
     bool c = cargarAlumno(&reg,qty);
     //ACÁ SE DEBERÍA PREGUNTAR SI SE DESEA ASIGNAR EL ALUMNO A MATERIAS
     if(c)
@@ -175,6 +176,7 @@ bool altaAlumno()
     else
 
     {
+        txtTabs();
         cout<<"ERROR AL CARGAR ALUMNO"<<endl;
     }
     return c;
@@ -188,16 +190,19 @@ bool altaAlumno()
 ============================================================================= **/
 void mostrarAlumno(tAlumno reg)
 {
+    txtCargaAlumno(2);
+    txtCargaAlumno(1);
+    txtTab();
+    txtCargaAlumno(3);
+
+    cout << ""<< endl;
+    txtLineas();
     if(!reg.eliminado)
     {
-        txtCargaAlumno(2);
-        cout<<reg.legajo<<endl;
-        txtCargaAlumno(1);
-        cout<<reg.nombre<<endl;
-        txtCargaAlumno(3);
-        cout<<reg.apellido<<endl;
+        cout<< " \t \t " <<  reg.legajo << " \t \t "  << reg.nombre << " \t \t " << reg.apellido <<endl;
+        txtLineas();
+        cout<<""<<endl;
     }
-
 }
 /**=============================================================================
  FUNCION :struct tAlumnos leerRegistroalumno(int pos)
@@ -263,7 +268,7 @@ void listarAlumnos(tAlumno reg)
             if(!reg.eliminado)
             {
                 mostrarAlumno(reg);
-                 valMaterias++;
+                valMaterias++;
             }
 
 
