@@ -83,10 +83,11 @@ using namespace std;
 int main()
 {
     txtPresentacion();
-    txtPresioneTeclaParaContinuar();
+    txtPresioneENTERDobleParaContinuar();
     menuPpal();
+    sys::cls();
     txtDespedida();
-    txtPresioneTeclaParaContinuar();
+    txtPresioneENTERDobleParaContinuar();
     //--------------------------------------------------------------------------
     // FIN DE LA FUNCION main() SIN ERRORES.
     //--------------------------------------------------------------------------

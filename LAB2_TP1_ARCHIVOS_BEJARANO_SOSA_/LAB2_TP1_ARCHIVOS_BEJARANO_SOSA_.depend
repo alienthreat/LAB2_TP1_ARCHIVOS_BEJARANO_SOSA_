@@ -82,7 +82,7 @@
 	<windows.h>
 	<unistd.h>
 
-1569517582 c:\users\vraptor\documents\github\lab2_tp1_archivos_bejarano_sosa_\lab2_tp1_archivos_bejarano_sosa_\funciones\menu.h
+1569537711 c:\users\vraptor\documents\github\lab2_tp1_archivos_bejarano_sosa_\lab2_tp1_archivos_bejarano_sosa_\funciones\menu.h
 	<iostream>
 	<cstdlib>
 	<cstdio>
@@ -105,7 +105,7 @@
 	"../CSYSTEM/csystem.h"
 	"./mensajes.h"
 
-1569537144 c:\users\vraptor\documents\github\lab2_tp1_archivos_bejarano_sosa_\lab2_tp1_archivos_bejarano_sosa_\funciones\mensajes.h
+1569537711 c:\users\vraptor\documents\github\lab2_tp1_archivos_bejarano_sosa_\lab2_tp1_archivos_bejarano_sosa_\funciones\mensajes.h
 	<iostream>
 	<cstdlib>
 	<cstdio>

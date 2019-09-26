@@ -171,6 +171,21 @@ void txtPresioneTeclaParaContinuar()
     cin.get();
     cin.ignore();
 }
+
+/**==============================================================================
+ FUNCIÓN : textoPresioneTeclaParaContinuar
+ ACCIÓN : Le muestra un cartel al usuario que le pide presionar ENTER dos veces
+ para continuar con el programa.
+ PARAMETROS: Ninguno.
+ DEVUELVE : nada.
+==============================================================================*/
+   void txtPresioneENTERDobleParaContinuar()
+    {
+
+    txtTabs(); cout << " Presione ENTER dos veces para continuar.";
+    cin.get();
+    cin.ignore();
+}
 /**==============================================================================
  FUNCIÓN : void txtSinRegistros()
  ACCIÓN : Le muestra un cartel al usuario que indica que no existen registros
