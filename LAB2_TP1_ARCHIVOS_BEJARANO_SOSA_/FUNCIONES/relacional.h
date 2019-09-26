@@ -95,12 +95,17 @@ bool verificarAlumno(int legajo)
     }
     return exit;
 }
-
+/**=============================================================================
+ FUNCION : struct tMaterias_x_Alumno()
+ ACCION : estructura de las materias x alumno
+ PARAMETROS:nada.
+ DEVUELVE : nada.
+============================================================================= **/
 void AsignarAtoM()
 {
     cout<<"aver"<<endl;
     txtPresioneTeclaParaContinuar();
-    system("cls");
+    sys::cls();
     struct tMaterias_x_Alumno reg;
     int legajo, id;
     bool exit=false, c=false;
@@ -116,7 +121,7 @@ void AsignarAtoM()
     }
     while(!exit)
     {
-    system("cls");
+     sys::cls();
     fMostrarListadoMaterias();
     txtTab();
     txtPresioneTeclaParaContinuar();
@@ -136,10 +141,15 @@ void AsignarAtoM()
     }
     }
 }
-
+/**=============================================================================
+ FUNCION : struct tMaterias_x_Alumno()
+ ACCION : estructura de las materias x alumno
+ PARAMETROS:nada.
+ DEVUELVE : nada.
+============================================================================= **/
 void AsignarMtoA()
 {
-    system("cls");
+     sys::cls();
     struct tMaterias_x_Alumno reg;
     int legajo, id_materia;
     bool exit=false, c=false;
@@ -155,7 +165,7 @@ void AsignarMtoA()
     }
     while(!exit)
     {
-    system("cls");
+     sys::cls();
     fMostrarListadoAlumnos();
     txtTab();
     txtPresioneTeclaParaContinuar();
@@ -209,7 +219,12 @@ void mostrarAlumnosAsignados(int id_materia)
         }
     }
 }
-
+/**=============================================================================
+ FUNCION : struct tMaterias_x_Alumno()
+ ACCION : estructura de las materias x alumno
+ PARAMETROS:nada.
+ DEVUELVE : nada.
+============================================================================= **/
 void mostrarMateriasAsignadas(int legajo){
     struct tMaterias_x_Alumno reg;
     struct tMateria mreg;
@@ -235,9 +250,14 @@ void mostrarMateriasAsignadas(int legajo){
         }
     }
 }
-
+/**=============================================================================
+ FUNCION : struct tMaterias_x_Alumno()
+ ACCION : estructura de las materias x alumno
+ PARAMETROS:nada.
+ DEVUELVE : nada.
+============================================================================= **/
 void mostrarAsxM(){
-    system("cls");
+     sys::cls();
     bool exit=false;
     while(!exit)
     {
@@ -255,9 +275,14 @@ void mostrarAsxM(){
         }
     }
 }
-
+/**=============================================================================
+ FUNCION : struct tMaterias_x_Alumno()
+ ACCION : estructura de las materias x alumno
+ PARAMETROS:nada.
+ DEVUELVE : nada.
+============================================================================= **/
 void mostrarMsxA(){
-    system("cls");
+    sys::cls();
     bool exit=false;
     while(!exit)
     {
