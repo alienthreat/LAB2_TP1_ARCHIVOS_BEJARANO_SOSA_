@@ -82,7 +82,11 @@ using namespace std;
 //------------------------------------------------------------------------------
 int main()
 {
+    txtPresentacion();
+    txtPresioneTeclaParaContinuar();
     menuPpal();
+    txtDespedida();
+    txtPresioneTeclaParaContinuar();
     //--------------------------------------------------------------------------
     // FIN DE LA FUNCION main() SIN ERRORES.
     //--------------------------------------------------------------------------
