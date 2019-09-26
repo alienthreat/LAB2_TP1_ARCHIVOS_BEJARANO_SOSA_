@@ -252,7 +252,7 @@ void txtCargaMateria(int val)
 {
     if(val== 1)
     {
-        txtTabs();cout<<" MATERIA ";
+        txtTabs();cout<<" MATERIA " ;
     }
     else if(val == 2 )
     {
@@ -275,7 +275,7 @@ void txtCargaAlumno(int val)
 
     if(val== 1)
     {
-        txtTabs();cout<<"NOMBRE DEL ALUMNO: ";
+        txtTab();cout<<"NOMBRE DEL ALUMNO: ";
     }
     else if(val == 2 )
     {

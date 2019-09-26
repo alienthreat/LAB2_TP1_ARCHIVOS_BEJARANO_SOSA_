@@ -194,7 +194,6 @@ bool subMaterias(char *op)
     case 57:
     {
         exit = true;
-
     }
     break;
     default:

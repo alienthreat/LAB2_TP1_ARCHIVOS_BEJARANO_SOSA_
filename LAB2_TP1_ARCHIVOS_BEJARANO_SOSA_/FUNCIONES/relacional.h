@@ -118,8 +118,8 @@ bool verificarAlumno(int legajo)
 ============================================================================= **/
 void mostrarMxA(tMaterias_x_Alumno reg)
 {
-        cout<< " \t \t \t ||          ID LEGAJO  \t \t \t    ID MATERIA \t \t  ||" << endl;
-        cout<< " \t \t \t ||    " <<  reg.legajo << " \t \t \t"  << reg.id_materia << " \t \t \t \t ||"  <<endl;
+        cout<< "  ||          ID LEGAJO  \t \t|| \t    ID MATERIA \t \t  ||" << endl;
+        cout<< "  ||  \t \t" <<  reg.legajo << "\t \t \t|| \t \t"  << reg.id_materia << "\t \t  ||"  <<endl;
 
 }
 /**=============================================================================
@@ -165,8 +165,6 @@ void listarMxA(tMaterias_x_Alumno reg)
 ============================================================================= **/
 void AsignarAtoM()
 {
-    cout<<"aver"<<endl;
-    txtPresioneTeclaParaContinuar();
     sys::cls();
     struct tMaterias_x_Alumno reg;
     int legajo, id;
@@ -185,15 +183,10 @@ void AsignarAtoM()
     {
         sys::cls();
         fMostrarListadoMaterias();
-        txtPresioneTeclaParaContinuar();
-        txtTabs();
-        cout    <<  "||_______________________________________________________________________||"<<endl;
         txtTabs();
         cout    <<  "||  NOTA: Ingrese 0 para finalizar la asignación de materias             ||"<<endl;
         txtTabs();
-        cout    <<  "||-----------------------------------------------------------------------||"<<endl;
-        txtTabs();
-        cout    <<  "Ingrese el ID de la materia que desea asignarle al alumno:"<<endl; //MOSTRAR LEGAJO Y NOMBRE
+        cout    <<  "Ingrese el ID de la materia que desea asignar al alumno:"<<endl; //MOSTRAR LEGAJO Y NOMBRE
 
         cin>>id;
         //VALIDA SI EL ID ES CORRECTO
@@ -240,7 +233,6 @@ void AsignarMtoA()
         sys::cls();
         fMostrarListadoAlumnos();
         txtTab();
-        txtPresioneTeclaParaContinuar();
         cout<<"Ingrese el legajo del alumno que se asignara a la materia:"<<endl;
         cout<<"NOTA: Ingrese 0 para finalizar la asignación de alumnos"<<endl;
         cin>>legajo;
@@ -287,7 +279,6 @@ void mostrarAlumnosAsignados(int id_materia)
                 pos=buscarAlumno(legajo, areg);
                 areg=leerRegistroAlumno(pos);
                 mostrarAlumno(areg);
-                txtLineas();
                 fclose(p);
             }
         }

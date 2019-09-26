@@ -192,15 +192,12 @@ void mostrarAlumno(tAlumno reg)
 {
     txtCargaAlumno(2);
     txtCargaAlumno(1);
-    txtTab();
     txtCargaAlumno(3);
-
+    txtTab();
     cout << ""<< endl;
-    txtLineas();
     if(!reg.eliminado)
     {
-        cout<< " \t \t " <<  reg.legajo << " \t \t "  << reg.nombre << " \t \t " << reg.apellido <<endl;
-        txtLineas();
+        cout<< " \t \t " <<  reg.legajo << " \t \t "  << reg.nombre << " \t \t \t " << reg.apellido <<endl;
         cout<<""<<endl;
     }
 }
@@ -293,7 +290,6 @@ void fMostrarListadoAlumnos()
 {
     tAlumno reg;
     listarAlumnos(reg);
-    txtPresioneTeclaParaContinuar();
 }
 /**=============================================================================
  FUNCION : void modificarAlumno()
